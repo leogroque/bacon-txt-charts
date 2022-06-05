@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/bacon-txt-charts/static/css/main.23bcd073.css",
-    "main.js": "/bacon-txt-charts/static/js/main.4be4d09d.js",
+    "main.css": "/bacon-txt-charts/static/css/main.8b1c0dd7.css",
+    "main.js": "/bacon-txt-charts/static/js/main.09a26a9c.js",
     "static/js/787.7869b535.chunk.js": "/bacon-txt-charts/static/js/787.7869b535.chunk.js",
     "service-worker.js": "/bacon-txt-charts/service-worker.js",
     "index.html": "/bacon-txt-charts/index.html",
-    "main.23bcd073.css.map": "/bacon-txt-charts/static/css/main.23bcd073.css.map",
-    "main.4be4d09d.js.map": "/bacon-txt-charts/static/js/main.4be4d09d.js.map",
+    "main.8b1c0dd7.css.map": "/bacon-txt-charts/static/css/main.8b1c0dd7.css.map",
+    "main.09a26a9c.js.map": "/bacon-txt-charts/static/js/main.09a26a9c.js.map",
     "787.7869b535.chunk.js.map": "/bacon-txt-charts/static/js/787.7869b535.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.23bcd073.css",
-    "static/js/main.4be4d09d.js"
+    "static/css/main.8b1c0dd7.css",
+    "static/js/main.09a26a9c.js"
   ]
 }
