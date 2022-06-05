@@ -23,7 +23,19 @@ const getFormattedDate = (date: Date) => {
 export const Charts = () => {
   const { data } = useData();
 
-  const [date, setDate] = React.useState(getFormattedDate(new Date()));
+  console.log(data[data.length - 1]);
+
+  const maxDate = getFormattedDate(
+    data[data.length - 1]?.date
+      ? new Date(data[data.length - 1]?.date)
+      : new Date()
+  );
+
+  const [date, setDate] = React.useState(maxDate);
+
+  React.useEffect(() => {
+    setDate(maxDate);
+  }, [maxDate]);
 
   const filteredData = React.useMemo(() => {
     return data.filter((item) => {
@@ -48,7 +60,7 @@ export const Charts = () => {
           type="date"
           value={date}
           min={getFormattedDate(new Date(data[0].date))}
-          max={getFormattedDate(new Date(data[data.length - 1].date))}
+          max={maxDate}
           onChange={(e) => {
             setDate(getFormattedDate(new Date(e.target.value)));
           }}
