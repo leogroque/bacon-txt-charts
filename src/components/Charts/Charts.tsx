@@ -13,10 +13,23 @@ import {
   Line,
 } from 'recharts';
 import { useData } from '../DataProvider/DataProvider';
+import * as React from 'react';
 import './Charts.css';
+
+const getFormattedDate = (date: Date) => {
+  return date.toISOString().split('T')[0];
+};
 
 export const Charts = () => {
   const { data } = useData();
+
+  const [date, setDate] = React.useState(getFormattedDate(new Date()));
+
+  const filteredData = React.useMemo(() => {
+    return data.filter((item) => {
+      return item.date.startsWith(date);
+    });
+  }, [data, date]);
 
   if (data.length === 0) {
     return null;
@@ -29,8 +42,20 @@ export const Charts = () => {
 
   return (
     <div className="ChartsContainer">
+      <div>
+        <span>Selecione a data: {date}</span>
+        <input
+          type="date"
+          value={date}
+          min={getFormattedDate(new Date(data[0].date))}
+          max={getFormattedDate(new Date(data[data.length - 1].date))}
+          onChange={(e) => {
+            setDate(getFormattedDate(new Date(e.target.value)));
+          }}
+        />
+      </div>
       <ResponsiveContainer width="95%" height="95%">
-        <LineChart data={data.slice(0, 10000)}>
+        <LineChart data={filteredData}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
           <YAxis domain={[0, 300]} />

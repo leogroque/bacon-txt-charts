@@ -2,6 +2,7 @@ import * as React from 'react';
 
 type Item = {
   date: string;
+  segundoDado: number;
   resistenciaMedida: number;
   pontoDeAlarmeMedio: number;
   resistenciaCabo: number;
@@ -32,6 +33,7 @@ const DataContext = React.createContext<{
  * 22 - ponto de alarme absoluto (linha roxa)
  */
 const dataMap = {
+  segundoDado: 1,
   dia: 5,
   mes: 6,
   ano: 7,
@@ -71,14 +73,8 @@ const getSingleItemFromRow = (row: string): Item | undefined => {
   );
 
   return {
+    ...mappedData,
     date: date.toISOString(),
-    resistenciaMedida: Number(mappedData.resistenciaMedida),
-    pontoDeAlarmeMedio: Number(mappedData.pontoDeAlarmeMedio),
-    resistenciaCabo: Number(mappedData.resistenciaCabo),
-    resistenciaMinimaTrilhoUmido: Number(
-      mappedData.resistenciaMinimaTrilhoUmido
-    ),
-    pontoDeAlarmeAbsoluto: Number(mappedData.pontoDeAlarmeAbsoluto),
   };
 };
 
@@ -93,6 +89,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
         return getSingleItemFromRow(row);
       })
       .filter((item): item is Item => item !== undefined)
+      .filter((item) => item.segundoDado === 56)
       /**
        * Sort by date.
        */
