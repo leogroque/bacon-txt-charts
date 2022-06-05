@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bacon-txt-charts/static/css/main.4a87438e.css",
+    "main.js": "/bacon-txt-charts/static/js/main.c5714161.js",
+    "static/js/787.7869b535.chunk.js": "/bacon-txt-charts/static/js/787.7869b535.chunk.js",
+    "index.html": "/bacon-txt-charts/index.html",
+    "main.4a87438e.css.map": "/bacon-txt-charts/static/css/main.4a87438e.css.map",
+    "main.c5714161.js.map": "/bacon-txt-charts/static/js/main.c5714161.js.map",
+    "787.7869b535.chunk.js.map": "/bacon-txt-charts/static/js/787.7869b535.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4a87438e.css",
+    "static/js/main.c5714161.js"
+  ]
+}
