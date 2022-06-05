@@ -32,17 +32,17 @@ const DataContext = React.createContext<{
  * 22 - ponto de alarme absoluto (linha roxa)
  */
 const dataMap = {
-  dia: 6,
-  mes: 7,
-  ano: 8,
-  hora: 9,
-  minuto: 10,
-  segundo: 11,
-  resistenciaMedida: 15,
-  pontoDeAlarmeMedio: 19,
-  resistenciaCabo: 20,
-  resistenciaMinimaTrilhoUmido: 21,
-  pontoDeAlarmeAbsoluto: 22,
+  dia: 5,
+  mes: 6,
+  ano: 7,
+  hora: 8,
+  minuto: 9,
+  segundo: 10,
+  resistenciaMedida: 14,
+  pontoDeAlarmeMedio: 18,
+  resistenciaCabo: 19,
+  resistenciaMinimaTrilhoUmido: 20,
+  pontoDeAlarmeAbsoluto: 21,
 };
 
 type DataMapKeys = keyof typeof dataMap;
