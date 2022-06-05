@@ -47,20 +47,31 @@ const dataMap = {
 
 type DataMapKeys = keyof typeof dataMap;
 
-const getSingleItemFromRow = (row: string): Item => {
+const getSingleItemFromRow = (row: string): Item | undefined => {
   const columns = row.split(';');
 
   const mappedData = Object.entries(dataMap).reduce<{
-    [key in DataMapKeys]: string;
+    [key in DataMapKeys]: number;
   }>((acc, [key, column]) => {
-    acc[key as DataMapKeys] = columns[column];
+    acc[key as DataMapKeys] = Number(columns[column]);
     return acc;
   }, {} as any);
 
-  const date = `${mappedData.ano}-${mappedData.mes}-${mappedData.dia} ${mappedData.hora}:${mappedData.minuto}:${mappedData.segundo}`;
+  if (Object.values(mappedData).some((value) => isNaN(value))) {
+    return undefined;
+  }
+
+  const date = new Date(
+    mappedData.ano + 2000,
+    mappedData.mes - 1,
+    mappedData.dia,
+    mappedData.hora,
+    mappedData.minuto,
+    mappedData.segundo
+  );
 
   return {
-    date,
+    date: date.toISOString(),
     resistenciaMedida: Number(mappedData.resistenciaMedida),
     pontoDeAlarmeMedio: Number(mappedData.pontoDeAlarmeMedio),
     resistenciaCabo: Number(mappedData.resistenciaCabo),
@@ -81,6 +92,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
       .map((row) => {
         return getSingleItemFromRow(row);
       })
+      .filter((item): item is Item => item !== undefined)
       /**
        * Sort by date.
        */

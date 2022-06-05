@@ -22,44 +22,44 @@ export const Charts = () => {
     return null;
   }
 
+  const lineCommonProps = {
+    type: 'monotone',
+    dot: false,
+  };
+
   return (
     <div className="ChartsContainer">
       <ResponsiveContainer width="95%" height="95%">
-        <LineChart data={data.slice(0, 1000)}>
+        <LineChart data={data.slice(0, 10000)}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
-          <YAxis />
+          <YAxis domain={[0, 300]} />
           <Tooltip />
           <Legend />
           <Line
-            type="monotone"
+            {...lineCommonProps}
             dataKey="resistenciaMedida"
             stroke="#0000FF"
-            dot={false}
           />
           <Line
-            type="monotone"
+            {...lineCommonProps}
             dataKey="pontoDeAlarmeMedio"
             stroke="#FF0000"
-            dot={false}
           />
           <Line
-            type="monotone"
+            {...lineCommonProps}
             dataKey="resistenciaCabo"
             stroke="#FFFF00"
-            dot={false}
           />
           <Line
-            type="monotone"
+            {...lineCommonProps}
             dataKey="resistenciaMinimaTrilhoUmido"
             stroke="#00FF00"
-            dot={false}
           />
           <Line
-            type="monotone"
+            {...lineCommonProps}
             dataKey="pontoDeAlarmeAbsoluto"
             stroke="#800080"
-            dot={false}
           />
         </LineChart>
       </ResponsiveContainer>
