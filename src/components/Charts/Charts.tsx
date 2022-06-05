@@ -21,21 +21,21 @@ const getFormattedDate = (date: Date) => {
 };
 
 export const Charts = () => {
-  const { data } = useData();
+  const { data = [] } = useData();
 
-  console.log(data[data.length - 1]);
+  const dates = React.useMemo(() => {
+    return [
+      ...new Set(data.map((item) => getFormattedDate(new Date(item.date)))),
+    ];
+  }, [data]);
 
-  const maxDate = getFormattedDate(
-    data[data.length - 1]?.date
-      ? new Date(data[data.length - 1]?.date)
-      : new Date()
-  );
+  const [date, setDate] = React.useState('_');
 
-  const [date, setDate] = React.useState(maxDate);
+  const defaultDate = dates[dates.length - 1];
 
   React.useEffect(() => {
-    setDate(maxDate);
-  }, [maxDate]);
+    setDate(defaultDate);
+  }, [defaultDate]);
 
   const filteredData = React.useMemo(() => {
     return data.filter((item) => {
@@ -55,16 +55,19 @@ export const Charts = () => {
   return (
     <div className="ChartsContainer">
       <div>
-        <span>Selecione a data: {date}</span>
-        <input
-          type="date"
+        <span>Selecione a data</span>
+        <select
           value={date}
-          min={getFormattedDate(new Date(data[0].date))}
-          max={maxDate}
           onChange={(e) => {
-            setDate(getFormattedDate(new Date(e.target.value)));
+            setDate(e.target.value);
           }}
-        />
+        >
+          {dates.map((item) => (
+            <option key={item} value={item}>
+              {item}
+            </option>
+          ))}
+        </select>
       </div>
       <ResponsiveContainer width="95%" height="95%">
         <LineChart data={filteredData}>
