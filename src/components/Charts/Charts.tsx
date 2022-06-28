@@ -86,6 +86,7 @@ export const Charts = () => {
           <Tooltip
             labelFormatter={(d) => {
               const date = new Date(d);
+              date.setHours(date.getHours() + 3);
               return dateFns.format(date, 'pp - P', { locale: ptBR });
             }}
           />
