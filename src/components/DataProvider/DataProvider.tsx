@@ -67,7 +67,7 @@ const getSingleItemFromRow = (row: string): Item | undefined => {
     mappedData.ano + 2000,
     mappedData.mes - 1,
     mappedData.dia,
-    mappedData.hora,
+    mappedData.hora - 3,
     mappedData.minuto,
     mappedData.segundo
   );

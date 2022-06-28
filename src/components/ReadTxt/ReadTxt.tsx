@@ -14,7 +14,7 @@ export const ReadTxt = () => {
 
   return (
     <div>
-      <input type="file" onChange={handleFile} />
+      <input type="file" accept="text/plain" onChange={handleFile} />
     </div>
   );
 };

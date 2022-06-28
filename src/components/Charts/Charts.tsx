@@ -14,6 +14,8 @@ import {
 } from 'recharts';
 import { useData } from '../DataProvider/DataProvider';
 import * as React from 'react';
+import * as dateFns from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 import './Charts.css';
 
 const getFormattedDate = (date: Date) => {
@@ -72,9 +74,21 @@ export const Charts = () => {
       <ResponsiveContainer width="95%" height="95%">
         <LineChart data={filteredData}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" />
+          <XAxis
+            dataKey="date"
+            tickFormatter={(d) => {
+              const date = new Date(d);
+              date.setHours(date.getHours() + 3);
+              return dateFns.format(date, 'HH:mm');
+            }}
+          />
           <YAxis domain={[0, 300]} />
-          <Tooltip />
+          <Tooltip
+            labelFormatter={(d) => {
+              const date = new Date(d);
+              return dateFns.format(date, 'pp - P', { locale: ptBR });
+            }}
+          />
           <Legend />
           <Line
             {...lineCommonProps}
@@ -89,7 +103,7 @@ export const Charts = () => {
           <Line
             {...lineCommonProps}
             dataKey="resistenciaCabo"
-            stroke="#FFFF00"
+            stroke="#FFCC00"
           />
           <Line
             {...lineCommonProps}
