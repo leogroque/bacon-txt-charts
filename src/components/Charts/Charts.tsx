@@ -87,7 +87,7 @@ export const Charts = () => {
             labelFormatter={(d) => {
               const date = new Date(d);
               date.setHours(date.getHours() + 3);
-              return dateFns.format(date, 'pp - P', { locale: ptBR });
+              return dateFns.format(date, 'Pp', { locale: ptBR });
             }}
           />
           <Legend />
