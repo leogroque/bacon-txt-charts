@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/bacon-txt-charts/static/css/main.59a96c29.css",
-    "main.js": "/bacon-txt-charts/static/js/main.84f09aba.js",
+    "main.js": "/bacon-txt-charts/static/js/main.58bbe1fd.js",
     "static/js/787.7869b535.chunk.js": "/bacon-txt-charts/static/js/787.7869b535.chunk.js",
     "service-worker.js": "/bacon-txt-charts/service-worker.js",
     "index.html": "/bacon-txt-charts/index.html",
     "main.59a96c29.css.map": "/bacon-txt-charts/static/css/main.59a96c29.css.map",
-    "main.84f09aba.js.map": "/bacon-txt-charts/static/js/main.84f09aba.js.map",
+    "main.58bbe1fd.js.map": "/bacon-txt-charts/static/js/main.58bbe1fd.js.map",
     "787.7869b535.chunk.js.map": "/bacon-txt-charts/static/js/787.7869b535.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.59a96c29.css",
-    "static/js/main.84f09aba.js"
+    "static/js/main.58bbe1fd.js"
   ]
 }
