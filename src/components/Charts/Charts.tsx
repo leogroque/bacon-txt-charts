@@ -82,7 +82,7 @@ export const Charts = () => {
               return dateFns.format(date, 'HH:mm');
             }}
           />
-          <YAxis domain={[0, 300]} />
+          <YAxis domain={[0, 25]} />
           <Tooltip
             labelFormatter={(d) => {
               const date = new Date(d);
@@ -93,27 +93,27 @@ export const Charts = () => {
           <Legend />
           <Line
             {...lineCommonProps}
-            dataKey="resistenciaMedida"
+            dataKey="tensaoPainelSolar"
             stroke="#0000FF"
           />
           <Line
             {...lineCommonProps}
-            dataKey="pontoDeAlarmeMedio"
+            dataKey="correntePainelSolar"
             stroke="#FF0000"
           />
           <Line
             {...lineCommonProps}
-            dataKey="resistenciaCabo"
+            dataKey="tensaoBateria"
             stroke="#FFCC00"
           />
           <Line
             {...lineCommonProps}
-            dataKey="resistenciaMinimaTrilhoUmido"
+            dataKey="correnteBateria"
             stroke="#00FF00"
           />
           <Line
             {...lineCommonProps}
-            dataKey="pontoDeAlarmeAbsoluto"
+            dataKey="tensaoAlvo"
             stroke="#800080"
           />
         </LineChart>

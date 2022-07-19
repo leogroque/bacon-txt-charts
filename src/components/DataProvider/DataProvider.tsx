@@ -3,11 +3,11 @@ import * as React from 'react';
 type Item = {
   date: string;
   segundoDado: number;
-  resistenciaMedida: number;
-  pontoDeAlarmeMedio: number;
-  resistenciaCabo: number;
-  resistenciaMinimaTrilhoUmido: number;
-  pontoDeAlarmeAbsoluto: number;
+  tensaoPainelSolar: number;
+  correntePainelSolar: number;
+  tensaoBateria: number;
+  correnteBateria: number;
+  tensaoAlvo: number;
 };
 
 type Data = Item[];
@@ -40,11 +40,11 @@ const dataMap = {
   hora: 8,
   minuto: 9,
   segundo: 10,
-  resistenciaMedida: 14,
-  pontoDeAlarmeMedio: 18,
-  resistenciaCabo: 19,
-  resistenciaMinimaTrilhoUmido: 20,
-  pontoDeAlarmeAbsoluto: 21,
+  tensaoPainelSolar: 12,
+  correntePainelSolar: 13,
+  tensaoBateria: 14,
+  correnteBateria: 15,
+  tensaoAlvo: 18,
 };
 
 type DataMapKeys = keyof typeof dataMap;
@@ -89,7 +89,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
         return getSingleItemFromRow(row);
       })
       .filter((item): item is Item => item !== undefined)
-      .filter((item) => item.segundoDado === 54)
+      .filter((item) => item.segundoDado === 4)
       /**
        * Sort by date.
        */
