@@ -8,6 +8,7 @@ type Item = {
   tensaoBateria: number;
   correnteBateria: number;
   tensaoAlvo: number;
+  informaMulti: number;
 };
 
 type Data = Item[];
@@ -45,6 +46,7 @@ const dataMap = {
   tensaoBateria: 14,
   correnteBateria: 15,
   tensaoAlvo: 18,
+  informaMulti: 46,
 };
 
 type DataMapKeys = keyof typeof dataMap;
@@ -90,6 +92,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
       })
       .filter((item): item is Item => item !== undefined)
       .filter((item) => item.segundoDado === 4)
+      .filter((item) => item.informaMulti === 1)
       /**
        * Sort by date.
        */
