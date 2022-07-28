@@ -82,7 +82,7 @@ export const Charts = () => {
               return dateFns.format(date, 'HH:mm');
             }}
           />
-          <YAxis domain={[0, 25]} />
+          <YAxis domain={[0, 8]} />
           <Tooltip
             labelFormatter={(d) => {
               const date = new Date(d);
